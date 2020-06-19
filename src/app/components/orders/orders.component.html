@@ -1,0 +1,10 @@
+<div *ngIf="customerOrders.orderItems.length === 0">
+  <h2>No orders</h2>
+</div>
+<div *ngIf="customerOrders.orderItems.length > 0">
+  <div class="orders" *ngFor="let order of customerOrders.orderItems">
+    <h2>{{ order.name }}</h2>
+    <p>{{ order.cost | currency }}</p>
+  </div>
+</div>
+<button mat-stroked-button (click)="addOrderForCustomer(selectedCustomer.id)"> ADD AN ORDER FOR SELECTED CUSTOMER </button>

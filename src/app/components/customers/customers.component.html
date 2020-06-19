@@ -1,0 +1,20 @@
+<mat-card class="customer-card">
+  <mat-card-content>
+    <div class="card-content-container">
+      <div class="half-container">
+        <h1>Customers</h1>
+        <div class="customer" *ngFor="let customer of appState.customers; trackBy: trackByFn" >
+          <div (click)="setSelectedCustomer(customer.id)">
+            <h2>{{ customer.name }}</h2>
+            <p>{{ customer.address.street + ' ' + customer.address.city + ' ' +  customer.address.state + ' ' +  customer.address.zip }}</p>
+          </div>
+        </div>
+        <button mat-stroked-button (click)="addNewCustomer()"> ADD A NEW CUSTOMER </button>
+      </div>
+      <div class="half-container" *ngIf="appState.selectedCustomer">
+        <h1>Orders</h1>
+        <app-orders [selectedCustomer]="appState.selectedCustomer"></app-orders>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

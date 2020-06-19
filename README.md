@@ -1,27 +1,28 @@
-# ObservableStore
+Setting Up Observable Store:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+ * Install the package!
+  - npm install @codewithdan/observable-store
+  - If you're not already using rxjs you'll want that too
 
-## Development server
+ * Create a class that extends ObservableStore
+  - I used angular CLI to generate a service and then added in the necessary shtuff!
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ * Set the initial state
+  - Usually you'll fetch from an API (pressed for time I'm just using some static data and setting state in the constructor)
+  - Subscribe to the store changes subscribing stateChanged. You get access to this from the class you created.
 
-## Code scaffolding
+ * Settings
+  - Use super() to pass in settings you want to add
+  - trackStateHistory
+    - gives you access to stateHistory property
+  - logStateChanges
+    - logs any state changes to the console
+  - stateSliceSelector
+    - Allows you to return a specific slice of the state instead of the whole thing
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ * Extensions 
+  - Redux DevTools
+    - npm install @codewithdan/observable-store-extensions
+    - add some code to main.ts
+      * ObservableStore.addExtension(new ReduxDevToolsExtension())
+      * ObservableStore.globalSettings = {}

@@ -1,0 +1,21 @@
+.customer-card {
+  width: 75%;
+}
+
+.half-container {
+  width: 45%;
+}
+
+.customer {
+  padding: 10px;
+  background-color: lightskyblue;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.card-content-container {
+  display: flex;
+  justify-content: space-evenly;
+}
